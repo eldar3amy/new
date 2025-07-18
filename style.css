@@ -1,26 +1,42 @@
+/* للشاشات الصغيرة */
 @media (max-width: 768px) {
-  .hero-container {
-    flex-direction: row; /* الصورة والاسم جنب بعض */
-    align-items: center;
+  .hero-content {
+    display: flex;
+    flex-direction: row; /* صف */
     justify-content: center;
-    text-align: right; /* الكتابة تتماشى مع العربي */
-    gap: 10px;
+    align-items: center;
+    padding: 20px;
+    gap: 15px;
   }
 
-  .hero-container img {
-    width: 120px; /* حجم مناسب للصورة */
-    margin: 0;
+  .hero-img img {
+    width: 100px;
+    height: 100px;
+    border-radius: 12px;
+    object-fit: cover;
   }
 
   .hero-text {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* يخلي النص يبدأ من اليمين */
+    justify-content: center;
+    align-items: flex-start; /* النص يبدأ من اليمين */
+    text-align: right;
     gap: 10px;
   }
 
-  .cta-button {
+  .hero-title {
+    font-size: 1.2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    color: #ccc;
+  }
+
+  .cta-btn {
+    margin-top: 8px;
     width: auto;
-    margin: 0;
+    font-size: 1rem;
   }
 }
