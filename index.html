@@ -4,480 +4,399 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>أ/ محمد سعيد يونس (الدرعمي) | الحجز أونلاين</title>
-    <meta name="description" content="الموقع الرسمي لحجز حصص اللغة العربية مع أ/ محمد سعيد يونس (الدرعمي) للمرحلة الإعدادية والثانوية.">
-    <!-- Font: Cairo & Amiri -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;400&family=Amiri:wght@700&display=swap" rel="stylesheet">
-    <!-- Font Awesome 6 Pro (SVG fallback if not available) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <!-- Schema Markup -->
+    <meta name="description" content="احجز دروسك مع أ/ محمد سعيد يونس (الدرعمي) أونلاين. تعليم احترافي، مجموعات مميزة، تواصل مباشر.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Cairo:wght@700&display=swap" rel="stylesheet">
+    <link rel="icon" href="mr.jpg">
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "EducationalOrganization",
-        "name": "أ/ محمد سعيد يونس (الدرعمي)",
-        "description": "دروس اللغة العربية للمرحلة الإعدادية والثانوية",
-        "url": "https://eldar3amy.com",
-        "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+201068685494",
-            "contactType": "customer service"
+        {
+            "@context": "https://schema.org",
+            "@type": "EducationalOrganization",
+            "name": "أ/ محمد سعيد يونس (الدرعمي)",
+            "description": "دروس تعليمية وحجز أونلاين مع أ/ محمد سعيد يونس.",
+            "url": "https://eldar3amy.com",
+            "contactPoint": [{
+                "@type": "ContactPoint",
+                "telephone": "+201068685494",
+                "contactType": "customer service"
+            }]
         }
-    }
     </script>
     <style>
+        
         :root {
-            --burgundy: #800020;
-            --black: #000;
-            --white: #fff;
-            --glass-bg: rgba(255,255,255,0.2);
-            --glass-blur: 16px;
-            --shadow: 0 8px 32px 0 rgba(0,0,0,0.12);
-            --whatsapp: #25D366;
-            --facebook: #1877F2;
-            --youtube: #FF0000;
-            --insta1: #F58529;
-            --insta2: #DD2A7B;
-            --insta3: #8134AF;
-            --transition: 0.3s cubic-bezier(.68,-0.55,.27,1.55);
-            --card-radius: 24px;
-            --nav-height: 64px;
-            --footer-height: 80px;
-            --font-main: 'Cairo', 'Amiri', serif;
-            --font-title: 'Amiri', serif;
-            --glass-border: 1px solid rgba(255,255,255,0.18);
+            --primary: #800020;
+            --secondary: #000000;
+            --glass-bg: rgba(255,255,255,0.18);
+            --glass-dark-bg: rgba(30,30,30,0.35);
+            --blur: 16px;
+            --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+            --border-radius: 18px;
+            --text: #222;
+            --text-light: #fff;
+            --card-bg: #fff;
+            --card-bg-dark: #232323;
+            --nav-bg: linear-gradient(135deg, var(--primary), var(--secondary));
+            --body-bg: linear-gradient(135deg, #f8f8f8, #ffffff);
+            --body-bg-dark: linear-gradient(135deg, #181818, #232323);
+            --accent: #800020;
+            --accent-light: #b22234;
+            --transition: 0.3s cubic-bezier(.4,0,.2,1);
+            --font-arabic: 'Cairo', 'Amiri', serif;
         }
         [data-theme="dark"] {
-            --burgundy: #a83250;
-            --white: #181818;
-            --glass-bg: rgba(24,24,24,0.3);
-            --shadow: 0 8px 32px 0 rgba(0,0,0,0.32);
+            --text: #eee;
+            --card-bg: var(--card-bg-dark);
+            --body-bg: var(--body-bg-dark);
+            --glass-bg: var(--glass-dark-bg);
         }
         html, body {
             height: 100%;
             margin: 0;
             padding: 0;
-            font-family: var(--font-main);
-            background: linear-gradient(135deg, var(--burgundy), var(--black));
-            color: var(--white);
+            font-family: var(--font-arabic);
+            background: var(--body-bg);
+            color: var(--text);
+            transition: background var(--transition), color var(--transition);
             scroll-behavior: smooth;
-            direction: rtl;
-            transition: background 0.4s;
         }
-        body.loaded {
-            background: linear-gradient(135deg, #f8f8f8, #fff);
-            color: #222;
-            transition: background 0.8s;
-        }
-        /* Loading Spinner */
+        /* Loading Animation */
         #loader {
             position: fixed;
             inset: 0;
-            background: linear-gradient(135deg, var(--burgundy), var(--black));
+            background: var(--nav-bg);
             z-index: 9999;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: opacity 0.6s;
+            transition: opacity 0.5s;
         }
-        #loader.hide {
-            opacity: 0;
-            pointer-events: none;
-        }
-        .spinner {
+        #loader .spinner {
             width: 64px;
             height: 64px;
-            border: 6px solid rgba(255,255,255,0.2);
-            border-top: 6px solid var(--burgundy);
+            border: 8px solid #fff;
+            border-top: 8px solid var(--primary);
             border-radius: 50%;
             animation: spin 1s linear infinite;
         }
         @keyframes spin {
-            to { transform: rotate(360deg);}
+            to { transform: rotate(360deg); }
         }
         /* Navbar */
-        nav {
+        .navbar {
             position: sticky;
             top: 0;
             z-index: 100;
-            height: var(--nav-height);
-            background: linear-gradient(135deg, var(--burgundy), var(--black));
+            background: var(--nav-bg);
             display: flex;
             align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 16px rgba(0,0,0,0.08);
-            transition: background 0.4s, backdrop-filter 0.4s;
-            backdrop-filter: blur(0px);
+            justify-content: space-between;
+            padding: 0.5rem 2rem;
+            box-shadow: var(--shadow);
+            font-family: var(--font-arabic);
         }
-        nav.scrolled {
-            background: linear-gradient(135deg, var(--burgundy), var(--black), 80%);
-            backdrop-filter: blur(8px);
-            opacity: 0.95;
-        }
-        .nav-menu {
+        .navbar .nav-links {
             display: flex;
-            gap: 32px;
+            gap: 2rem;
             font-size: 1.1rem;
-            font-weight: 700;
-            letter-spacing: 0.5px;
         }
-        .nav-menu a {
-            color: var(--white);
+        .navbar .nav-links a {
+            color: var(--text-light);
             text-decoration: none;
             position: relative;
-            padding: 8px 0;
-            transition: color var(--transition);
-            font-family: var(--font-main);
+            transition: color var(--transition), transform var(--transition);
+            padding: 0.25rem 0.5rem;
         }
-        .nav-menu a:hover, .nav-menu a.active {
-            color: #ffd6e0;
+        .navbar .nav-links a:hover {
+            color: #ffd700;
+            transform: scale(1.08);
         }
-        .nav-menu a::after {
+        .navbar .nav-links a::after {
             content: '';
             display: block;
-            position: absolute;
-            right: 0; left: 0; bottom: 0;
             height: 2px;
-            background: #ffd6e0;
-            transform: scaleX(0);
-            transition: transform var(--transition);
-            border-radius: 2px;
+            width: 0;
+            background: #ffd700;
+            transition: width var(--transition);
+            position: absolute;
+            bottom: -2px; right: 0;
         }
-        .nav-menu a:hover::after, .nav-menu a.active::after {
-            transform: scaleX(1);
+        .navbar .nav-links a:hover::after {
+            width: 100%;
+            left: 0;
         }
-        .nav-menu a:hover {
-            animation: bounce 0.4s;
-        }
-        @keyframes bounce {
-            0% { transform: translateY(0);}
-            30% { transform: translateY(-6px);}
-            60% { transform: translateY(2px);}
-            100% { transform: translateY(0);}
-        }
-        /* Dark Mode Toggle */
-        .dark-toggle {
-            margin-right: 24px;
+        .navbar .theme-toggle {
+            background: none;
+            border: none;
             cursor: pointer;
-            font-size: 1.4rem;
-            color: #ffd6e0;
-            transition: color 0.3s;
-        }
-        .dark-toggle:hover {
-            color: #fff;
-            filter: drop-shadow(0 0 4px #ffd6e0);
+            color: var(--text-light);
+            font-size: 1.5rem;
+            transition: color var(--transition);
+            margin-right: 1rem;
         }
         /* Hero Section */
         .hero {
             min-height: 100vh;
+            background: var(--nav-bg);
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 0;
-            background: linear-gradient(135deg, var(--burgundy), var(--black));
-            padding-top: var(--nav-height);
-            padding-bottom: 48px;
+            padding: 0 2rem;
+            font-family: var(--font-arabic);
             position: relative;
             overflow: hidden;
         }
         .hero-content {
             display: flex;
-            flex-direction: row;
+            gap: 3rem;
             align-items: center;
             justify-content: center;
             width: 100%;
-            max-width: 1200px;
-            gap: 48px;
-            padding: 0 32px;
+            max-width: 1100px;
         }
         .hero-img {
-            flex: 1 1 320px;
+            flex: 0 0 260px;
+            width: 260px;
+            height: 260px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            background: var(--glass-bg);
+            backdrop-filter: blur(var(--blur));
             display: flex;
             align-items: center;
             justify-content: center;
         }
         .hero-img img {
-            width: 320px;
-            max-width: 90vw;
-            border-radius: 32px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.18);
-            transition: transform 0.5s, box-shadow 0.5s;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            background: var(--white);
-            border: 4px solid #fff;
-        }
-        .hero-img img:hover {
-            transform: scale(1.04) rotate(-2deg);
-            box-shadow: 0 16px 48px rgba(128,0,32,0.18);
+            border-radius: var(--border-radius);
         }
         .hero-text {
-            flex: 2 1 480px;
+            flex: 1;
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
-            justify-content: center;
-            gap: 24px;
-            animation: fadeInRight 1.2s;
+            gap: 1.5rem;
+            color: var(--text-light);
+            text-align: right;
         }
-        @keyframes fadeInRight {
-            from { opacity: 0; transform: translateX(60px);}
-            to { opacity: 1; transform: none;}
-        }
-        .hero-title {
+        .hero-text h1 {
             font-size: 2.8rem;
-            font-family: var(--font-title);
+            font-family: 'Amiri', var(--font-arabic);
+            margin: 0;
             font-weight: 700;
-            color: #fff;
             letter-spacing: 1px;
-            margin-bottom: 8px;
-            animation: fadeInUp 1.2s;
         }
-        .hero-subtitle {
+        .hero-text h2 {
             font-size: 1.6rem;
-            font-family: 'Cairo', var(--font-title);
-            color: #ffd6e0;
+            font-family: 'Cairo', var(--font-arabic);
+            margin: 0;
             font-weight: 700;
-            margin-bottom: 24px;
-            letter-spacing: 0.5px;
-            animation: fadeInUp 1.6s;
+            color: #aaaaa6;
+        }
+        .hero-text .cta-btn {
+            background: linear-gradient(90deg, #585856, #b22234);
+            color: #222;
+            border: none;
+            border-radius: 12px;
+            padding: 0.8rem 2.2rem;
+            font-size: 1.2rem;
+            font-family: var(--font-arabic);
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            transition: transform var(--transition), box-shadow var(--transition);
+            margin-top: 1rem;
+            align-self: flex-end;
+        }
+        .hero-text .cta-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 32px 0 rgba(31, 38, 135, 0.18);
+        }
+        /* Responsive Hero Section */
+        @media (max-width: 768px) {
+            .hero-content {
+                flex-direction: row-reverse;
+                gap: 1.2rem;
+                align-items: center;
+                justify-content: flex-start;
+            }
+            .hero-img {
+                width: 90px;
+                height: 90px;
+                flex: 0 0 90px;
+            }
+            .hero-text {
+                flex: 1;
+                gap: 0.5rem;
+                text-align: right;
+                justify-content: center;
+            }
+            .hero-text h1 {
+                font-size: 1.2rem;
+                margin-bottom: 0.2rem;
+            }
+            .hero-text h2 {
+                font-size: 1rem;
+                margin-bottom: 0.2rem;
+            }
+            .hero-text .cta-btn {
+                margin-top: 0.7rem;
+                align-self: center;
+                display: block;
+                width: 100%;
+                max-width: 220px;
+            }
+        }
+        /* Glassmorphic Card */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(var(--blur));
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 700px;
+            width: 95%;
+            transition: background var(--transition), box-shadow var(--transition);
+            border: 1px solid rgba(255,255,255,0.08);
+            position: relative;
+            animation: fadeInUp 1s;
         }
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(40px);}
-            to { opacity: 1; transform: none;}
+            to { opacity: 1; transform: translateY(0);}
         }
-        .hero-cta {
-            font-size: 1.3rem;
-            padding: 18px 48px;
-            background: var(--burgundy);
-            color: #fff;
-            border: none;
-            border-radius: 32px;
-            box-shadow: 0 4px 24px rgba(128,0,32,0.18);
-            cursor: pointer;
-            font-weight: 700;
-            letter-spacing: 1px;
-            transition: background 0.3s, box-shadow 0.3s, transform 0.3s;
-            position: relative;
-            overflow: hidden;
-            animation: fadeInUp 2s;
-        }
-        .hero-cta:hover {
-            background: #a83250;
-            box-shadow: 0 0 24px 8px #ffd6e0;
-            transform: scale(1.05);
-            filter: brightness(1.1);
-        }
-        /* Responsive Hero */
-        @media (max-width: 900px) {
-            .hero-content {
-                flex-direction: row;
-                gap: 24px;
-            }
-            .hero-img img {
-                width: 220px;
-                border-radius: 24px;
-            }
-            .hero-title { font-size: 2rem;}
-            .hero-subtitle { font-size: 1.2rem;}
-        }
-        @media (max-width: 600px) {
-            .hero-content {
-                flex-direction: row-reverse;
-                gap: 16px;
-                padding: 0 8px;
-            }
-            .hero-img img {
-                width: 120px;
-                border-radius: 16px;
-            }
-            .hero-text {
-                gap: 12px;
-            }
-            .hero-title { font-size: 1.2rem;}
-            .hero-subtitle { font-size: 1rem;}
-            .hero-cta {
-                font-size: 1rem;
-                padding: 12px 24px;
-                margin-top: 8px;
-            }
-        }
-        /* Page Background After Hero */
-        main {
-            background: linear-gradient(135deg, #f8f8f8, #fff);
-            min-height: 100vh;
-            padding-bottom: var(--footer-height);
-            transition: background 0.4s;
-        }
-        /* Glass Card */
-        .glass-card {
-            background: var(--glass-bg);
-            border-radius: var(--card-radius);
-            box-shadow: var(--shadow);
-            backdrop-filter: blur(var(--glass-blur));
-            border: var(--glass-border);
-            padding: 32px 24px;
-            margin: 32px auto;
-            max-width: 600px;
-            width: 95%;
-            transition: background 0.4s, box-shadow 0.4s;
-            animation: fadeInUp 1.2s;
-        }
-        .glass-card h2 {
-            font-family: var(--font-title);
+        /* Section Titles */
+        .section-title {
             font-size: 2rem;
-            color: var(--burgundy);
-            margin-bottom: 24px;
+            font-family: 'Amiri', var(--font-arabic);
+            color: var(--accent);
+            margin-bottom: 1.2rem;
             text-align: center;
             font-weight: 700;
         }
-        /* Booking Section */
-        #booking {
-            scroll-margin-top: 80px;
+        /* Booking Form */
+        .booking-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
         }
         .booking-form label {
-            display: block;
             font-size: 1.1rem;
             font-weight: 700;
-            margin-bottom: 8px;
-            color: var(--burgundy);
-            font-family: var(--font-main);
+            margin-bottom: 0.3rem;
+            color: var(--accent);
         }
         .booking-form input, .booking-form select {
-            width: 100%;
-            padding: 12px;
-            border-radius: 12px;
+            padding: 0.7rem 1rem;
+            border-radius: 10px;
             border: 1px solid #ddd;
-            margin-bottom: 18px;
             font-size: 1rem;
-            font-family: var(--font-main);
-            background: rgba(255,255,255,0.8);
-            transition: border 0.3s;
-        }
-        .booking-form input:focus, .booking-form select:focus {
-            border: 1.5px solid var(--burgundy);
+            font-family: var(--font-arabic);
+            background: var(--card-bg);
+            color: var(--text);
+            transition: border var(--transition), background var(--transition);
             outline: none;
         }
-        .booking-form button {
-            width: 100%;
-            padding: 16px;
-            background: var(--burgundy);
+        .booking-form input:focus, .booking-form select:focus {
+            border-color: var(--accent);
+            background: #f9f9f9;
+        }
+        .booking-form .form-row {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .booking-form .form-row > * {
+            flex: 1;
+            min-width: 180px;
+        }
+        .booking-form .booking-btn {
+            background: linear-gradient(90deg, var(--primary), #ffd700);
             color: #fff;
             border: none;
-            border-radius: 24px;
+            border-radius: 12px;
+            padding: 0.8rem 2.2rem;
             font-size: 1.2rem;
+            font-family: var(--font-arabic);
             font-weight: 700;
             cursor: pointer;
-            box-shadow: 0 4px 24px rgba(128,0,32,0.12);
-            transition: background 0.3s, box-shadow 0.3s, transform 0.3s;
-            margin-top: 8px;
+            box-shadow: var(--shadow);
+            transition: transform var(--transition), box-shadow var(--transition);
+            margin-top: 1rem;
+            align-self: center;
+            width: 100%;
+            max-width: 220px;
         }
-        .booking-form button:hover {
-            background: #a83250;
-            box-shadow: 0 0 24px 8px #ffd6e0;
-            transform: scale(1.04);
+        .booking-form .booking-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 32px 0 rgba(31, 38, 135, 0.18);
         }
         /* Contact Section */
-        #contact {
-            scroll-margin-top: 80px;
-        }
         .contact-icons {
             display: flex;
             justify-content: center;
-            gap: 32px;
-            margin-top: 16px;
-            margin-bottom: 16px;
-            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 1.5rem;
         }
-        .contact-icon-btn {
-            width: 64px;
-            height: 64px;
-            border-radius: 50%;
-            background: var(--glass-bg);
-            box-shadow: 0 4px 24px rgba(0,0,0,0.12);
-            backdrop-filter: blur(var(--glass-blur));
-            border: var(--glass-border);
+        .contact-icons a {
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
-            cursor: pointer;
-            position: relative;
-        }
-        .contact-icon-btn svg, .contact-icon-btn i {
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            background: var(--glass-bg);
+            box-shadow: var(--shadow);
+            color: var(--accent);
             font-size: 2rem;
-            color: var(--burgundy);
-            transition: color 0.3s, filter 0.3s;
+            transition: background var(--transition), color var(--transition), transform var(--transition);
+            border: 1px solid rgba(255,255,255,0.08);
+            text-decoration: none;
         }
-        .contact-icon-btn.whatsapp:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 16px 4px var(--whatsapp);
-            background: rgba(37,211,102,0.18);
-        }
-        .contact-icon-btn.whatsapp svg, .contact-icon-btn.whatsapp i { color: var(--whatsapp);}
-        .contact-icon-btn.instagram:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 16px 4px #DD2A7B;
-            background: linear-gradient(135deg, var(--insta1), var(--insta2), var(--insta3));
-        }
-        .contact-icon-btn.instagram svg, .contact-icon-btn.instagram i { color: #DD2A7B;}
-        .contact-icon-btn.facebook:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 16px 4px var(--facebook);
-            background: rgba(24,119,242,0.18);
-        }
-        .contact-icon-btn.facebook svg, .contact-icon-btn.facebook i { color: var(--facebook);}
-        .contact-icon-btn.youtube:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 16px 4px var(--youtube);
-            background: rgba(255,0,0,0.18);
-        }
-        .contact-icon-btn.youtube svg, .contact-icon-btn.youtube i { color: var(--youtube);}
-        /* Footer */
-        footer {
-            background: linear-gradient(135deg, var(--burgundy), var(--black));
-            color: #fff;
-            text-align: center;
-            padding: 32px 0 16px 0;
-            font-size: 1.1rem;
-            font-family: var(--font-main);
-            position: relative;
-            z-index: 10;
-            min-height: var(--footer-height);
-            letter-spacing: 0.5px;
+        .contact-icons a:hover {
+            background: #ffff02;
+            color: var(--primary);
+            transform: scale(1.12) rotate(-8deg);
         }
         /* Floating WhatsApp Button */
         .floating-whatsapp {
             position: fixed;
-            bottom: 32px;
-            left: 32px;
+            bottom: 24px;
+            left: 24px;
             z-index: 999;
-            width: 64px;
-            height: 64px;
+            background: #25d366;
+            color: #fff;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
-            background: var(--glass-bg);
-            box-shadow: 0 4px 24px rgba(37,211,102,0.18);
-            backdrop-filter: blur(var(--glass-blur));
-            border: var(--glass-border);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.18);
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 2.3rem;
             cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
-            animation: floatBounce 2s infinite;
+            transition: background var(--transition), transform var(--transition);
         }
         .floating-whatsapp:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 24px 8px var(--whatsapp);
-            background: rgba(37,211,102,0.28);
-            animation: none;
+            background: #128c7e;
+            transform: scale(1.08);
         }
-        .floating-whatsapp svg, .floating-whatsapp i {
-            font-size: 2.2rem;
-            color: var(--whatsapp);
-            transition: color 0.3s, filter 0.3s;
-        }
-        @keyframes floatBounce {
-            0%, 100% { transform: translateY(0);}
-            50% { transform: translateY(-8px);}
+        /* Footer */
+        footer {
+            background: var(--nav-bg);
+            color: var(--text-light);
+            text-align: center;
+            padding: 1.2rem 0;
+            font-size: 1.1rem;
+            font-family: var(--font-arabic);
+            margin-top: 2rem;
+            letter-spacing: 1px;
+            border-top-left-radius: var(--border-radius);
+            border-top-right-radius: var(--border-radius);
         }
         /* Reveal Animations */
         .reveal {
@@ -487,200 +406,236 @@
         }
         .reveal.visible {
             opacity: 1;
-            transform: none;
+            transform: translateY(0);
         }
-        /* Responsive Cards & Sections */
+        /* Misc Responsive */
         @media (max-width: 600px) {
             .glass-card {
-                padding: 16px 8px;
-                margin: 16px auto;
-                border-radius: 12px;
+                padding: 1rem;
             }
             .contact-icons {
-                gap: 16px;
+                gap: 1rem;
             }
-            .contact-icon-btn, .floating-whatsapp {
-                width: 48px;
-                height: 48px;
+            .navbar {
+                padding: 0.5rem 0.7rem;
             }
-            .contact-icon-btn svg, .contact-icon-btn i,
-            .floating-whatsapp svg, .floating-whatsapp i {
-                font-size: 1.4rem;
-            }
-            .floating-whatsapp {
-                left: 12px;
-                bottom: 12px;
-            }
-        }
-        /* RTL Fixes */
-        input, select, textarea {
-            direction: rtl;
-            text-align: right;
         }
     </style>
 </head>
 <body>
-    <!-- Loading Spinner -->
+    <!-- Loading Animation -->
     <div id="loader">
         <div class="spinner"></div>
     </div>
     <!-- Navbar -->
-    <nav>
-        <span class="dark-toggle" id="darkToggle" title="تبديل الوضع الليلي" aria-label="تبديل الوضع الليلي">
-            <i class="fa-solid fa-moon"></i>
-        </span>
-        <div class="nav-menu">
-            <a href="#hero" class="active">الرئيسية</a>
-            <a href="#about">عن المدرس</a>
+    <nav class="navbar">
+        <div class="nav-links">
+            <a href="#hero">الرئيسية</a>
+            <a href="#about">عن الدرعمي</a>
             <a href="#why">لماذا نحن</a>
             <a href="#booking">الحجز</a>
             <a href="#contact">تواصل معنا</a>
         </div>
+        <button class="theme-toggle" id="themeToggle" aria-label="تغيير الوضع">
+            <span id="themeIcon">🌙</span>
+        </button>
     </nav>
     <!-- Hero Section -->
     <section class="hero" id="hero">
         <div class="hero-content">
             <div class="hero-img">
-                <img src="mr.jpg" alt="أ/ محمد سعيد يونس" loading="lazy">
+                <img src="mr.jpg" alt="أ/ محمد سعيد يونس">
             </div>
             <div class="hero-text">
-                <div class="hero-title">أ/ محمد سعيد يونس</div>
-                <div class="hero-subtitle">الدرعمي</div>
-                <button class="hero-cta" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">احجز الآن</button>
+                <h1>أ/ محمد سعيد يونس</h1>
+                <h2>الدرعمي</h2>
+                <button class="cta-btn" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">احجز الآن</button>
             </div>
         </div>
     </section>
-    <main>
-        <!-- About Section -->
-        <section class="glass-card reveal" id="about">
-            <h2>عن المدرس</h2>
-            <p style="font-size:1.1rem;line-height:1.8;">
-                أ/ محمد سعيد يونس (الدرعمي) مدرس لغة عربية للمرحلة الإعدادية والثانوية، خبرة كبيرة في تبسيط المناهج وتقديم أفضل طرق الشرح والتدريب على الامتحانات، مع متابعة شخصية لكل طالب لتحقيق أعلى النتائج.
-            </p>
-        </section>
-        <!-- Why Us Section -->
-        <section class="glass-card reveal" id="why">
-            <h2>لماذا نحن</h2>
-            <ul style="font-size:1.1rem;line-height:2;">
-                <li>شرح مبسط ومفصل لكل جزئية في المنهج</li>
-                <li>متابعة فردية لكل طالب</li>
-                <li>نماذج امتحانات وتدريبات مستمرة</li>
-                <li>تواصل مباشر مع المدرس</li>
-                <li>مجموعات مميزة في مراكز معتمدة</li>
-            </ul>
-        </section>
-        <!-- Booking Section -->
-        <section class="glass-card reveal" id="booking">
-            <h2>احجز حصتك الآن</h2>
-            <form class="booking-form" id="bookingForm" autocomplete="off">
-                <label for="studentName">الاسم الثلاثي</label>
-                <input type="text" id="studentName" name="studentName" required>
-                <label for="studentPhone">رقم هاتف الطالب</label>
-                <input type="tel" id="studentPhone" name="studentPhone" required pattern="^01[0-9]{9}$" title="رقم هاتف مصري صحيح">
-                <label for="parentPhone">رقم هاتف ولي الأمر</label>
-                <input type="tel" id="parentPhone" name="parentPhone" required pattern="^01[0-9]{9}$" title="رقم هاتف مصري صحيح">
-                <label for="stage">المرحلة الدراسية</label>
-                <select id="stage" name="stage" required>
-                    <option value="" disabled selected>اختر المرحلة</option>
-                    <option>الصف الأول الإعدادي</option>
-                    <option>الصف الثاني الإعدادي</option>
-                    <option>الصف الثالث الإعدادي</option>
-                    <option>الصف الأول الثانوي</option>
-                    <option>الصف الثاني الثانوي</option>
-                    <option>الصف الثالث الثانوي</option>
-                </select>
-                <label for="center">المركز</label>
-                <select id="center" name="center" required>
-                    <option value="" disabled selected>اختر المركز</option>
-                    <option>الكيان (القلج)</option>
-                    <option>الدرعمي (الخانكة)</option>
-                    <option>النخبة (العبور)</option>
-                </select>
-                <button type="submit">تأكيد الحجز</button>
-            </form>
-        </section>
-        <!-- Contact Section -->
-        <section class="glass-card reveal" id="contact">
-            <h2>تواصل معنا</h2>
-            <div class="contact-icons">
-                <a class="contact-icon-btn whatsapp" href="https://wa.me/+20 155 822 4765?text=مرحبا، أريد الاستفسار عن الحجز" target="_blank" aria-label="واتساب">
-                    <i class="fa-brands fa-whatsapp"></i>
-                </a>
-                <a class="contact-icon-btn instagram" href="https://instagram.com/" target="_blank" aria-label="انستجرام">
-                    <i class="fa-brands fa-instagram"></i>
-                </a>
-                <a class="contact-icon-btn facebook" href="https://www.facebook.com/share/1BdnyJ8d1z/" target="_blank" aria-label="فيسبوك">
-                    <i class="fa-brands fa-facebook-f"></i>
-                </a>
-                <a class="contact-icon-btn youtube" href="https://youtube.com/channel/UC5adSKDEHn_B_2vxKnVnxNA" target="_blank" aria-label="يوتيوب">
-                    <i class="fa-brands fa-youtube"></i>
-                </a>
+    <!-- About Section -->
+    <section id="about" class="glass-card reveal">
+        <div class="section-title">عن الدرعمي</div>
+        <p style="text-align:right; font-size:1.1rem;">
+            أ/ محمد سعيد يونس (الدرعمي) من رواد التعليم في المنطقة، خبرة واسعة في تدريس المواد العلمية، مجموعات مميزة، متابعة شخصية لكل طالب، وطرق شرح حديثة تواكب التطور.
+        </p>
+    </section>
+    <!-- Why Us Section -->
+    <section id="why" class="glass-card reveal">
+        <div class="section-title">لماذا نحن</div>
+        <ul style="text-align:right; font-size:1.1rem; list-style: disc inside;">
+            <li>شرح مبسط واحترافي</li>
+            <li>متابعة فردية لكل طالب</li>
+            <li>مجموعات محدودة العدد لضمان الجودة</li>
+            <li>تواصل مباشر مع المدرس</li>
+            <li>تجهيز الطالب للامتحانات بأحدث الأساليب</li>
+        </ul>
+    </section>
+    <!-- Booking Section -->
+    <section id="booking" class="glass-card reveal">
+        <div class="section-title">احجز الآن</div>
+        <form class="booking-form" id="bookingForm" autocomplete="off">
+            <div class="form-row">
+                <div>
+                    <label for="studentName">الاسم الثلاثي</label>
+                    <input type="text" id="studentName" required>
+                </div>
+                <div>
+                    <label for="studentPhone">رقم هاتف الطالب</label>
+                    <input type="tel" id="studentPhone" required pattern="^01[0-9]{9}$" placeholder="01xxxxxxxxx">
+                </div>
             </div>
-        </section>
-    </main>
+            <div class="form-row">
+                <div>
+                    <label for="parentPhone">رقم هاتف ولي الأمر</label>
+                    <input type="tel" id="parentPhone" required pattern="^01[0-9]{9}$" placeholder="01xxxxxxxxx">
+                </div>
+                <div>
+                    <label for="stage">المرحلة الدراسية</label>
+                    <select id="stage" required>
+                        <option value="">اختر المرحلة</option>
+                        <option>الصف الأول الإعدادي</option>
+                        <option>الصف الثاني الإعدادي</option>
+                        <option>الصف الثالث الإعدادي</option>
+                        <option>الصف الأول الثانوي</option>
+                        <option>الصف الثاني الثانوي</option>
+                        <option>الصف الثالث الثانوي</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div>
+                    <label for="center">المركز</label>
+                    <select id="center" required>
+                        <option value="">اختر المركز</option>
+                        <option>الكيان (القلج)</option>
+                        <option>الدرعمي (الخانكة)</option>
+                        <option>النخبة (العبور)</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="group">المجموعة</label>
+                    <select id="group" required>
+                        <option value="">اختر المجموعة</option>
+                    </select>
+                </div>
+            </div>
+            <button type="submit" class="booking-btn">تأكيد الحجز</button>
+        </form>
+    </section>
+    <!-- Contact Section -->
+    <section id="contact" class="glass-card reveal">
+        <div class="section-title">تواصل معنا</div>
+        <div class="contact-icons">
+            <a href="https://wa.me/+201558224765" target="_blank" title="WhatsApp" aria-label="واتساب">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="currentColor"><path d="M16 3C9.373 3 4 8.373 4 15c0 2.385.697 4.607 2.02 6.563L4 29l7.652-2.012C13.393 27.634 14.68 28 16 28c6.627 0 12-5.373 12-13S22.627 3 16 3zm0 23c-1.17 0-2.318-.234-3.406-.697l-.243-.106-4.543 1.193 1.213-4.429-.158-.252C7.234 19.318 7 18.17 7 17c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10zm5.406-7.697c-.297-.148-1.758-.867-2.031-.967-.273-.099-.47-.148-.667.148-.197.297-.767.967-.94 1.164-.173.198-.347.223-.644.074-.297-.148-1.255-.463-2.39-1.477-.883-.788-1.48-1.761-1.653-2.058-.173-.297-.018-.457.13-.605.134-.133.297-.347.446-.52.149-.173.198-.297.297-.495.099-.198.05-.371-.025-.52-.074-.148-.667-1.611-.913-2.205-.241-.579-.487-.5-.667-.51-.173-.009-.371-.011-.57-.011-.198 0-.52.074-.793.372-.273.297-1.04 1.016-1.04 2.477 0 1.461 1.065 2.876 1.213 3.074.148.198 2.099 3.208 5.093 4.377.713.274 1.27.438 1.705.561.717.229 1.37.197 1.883.12.575-.085 1.758-.719 2.007-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+            </a>
+            <a href="https://instagram.com/" target="_blank" title="Instagram" aria-label="انستجرام">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="currentColor"><path d="M16 7c2.761 0 3.09.01 4.174.06 1.07.05 1.653.22 2.04.37.49.19.84.42 1.21.79.37.37.6.72.79 1.21.15.39.32.97.37 2.04.05 1.08.06 1.41.06 4.17s-.01 3.09-.06 4.17c-.05 1.07-.22 1.65-.37 2.04-.19.49-.42.84-.79 1.21-.37.37-.72.6-1.21.79-.39.15-.97.32-2.04.37-1.08.05-1.41.06-4.17.06s-3.09-.01-4.17-.06c-1.07-.05-1.65-.22-2.04-.37-.49-.19-.84-.42-1.21-.79-.37-.37-.6-.72-.79-1.21-.15-.39-.32-.97-.37-2.04C7.01 19.09 7 18.76 7 16s.01-3.09.06-4.17c.05-1.07.22-1.65.37-2.04.19-.49.42-.84.79-1.21.37-.37.72-.6 1.21-.79.39-.15.97-.32 2.04-.37C12.91 7.01 13.24 7 16 7zm0-2c-2.8 0-3.15.01-4.25.06-1.1.05-1.85.23-2.5.49-.68.27-1.25.63-1.82 1.2-.57.57-.93 1.14-1.2 1.82-.26.65-.44 1.4-.49 2.5C7.01 12.85 7 13.2 7 16s.01 3.15.06 4.25c.05 1.1.23 1.85.49 2.5.27.68.63 1.25 1.2 1.82.57.57 1.14.93 1.82 1.2.65.26 1.4.44 2.5.49 1.1.05 1.45.06 4.25.06s3.15-.01 4.25-.06c1.1-.05 1.85-.23 2.5-.49.68-.27 1.25-.63 1.82-1.2.57-.57.93-1.14 1.2-1.82.26-.65.44-1.4.49-2.5.05-1.1.06-1.45.06-4.25s-.01-3.15-.06-4.25c-.05-1.1-.23-1.85-.49-2.5-.27-.68-.63-1.25-1.2-1.82-.57-.57-1.14-.93-1.82-1.2-.65-.26-1.4-.44-2.5-.49C19.15 5.01 18.8 5 16 5zm0 5a6 6 0 100 12 6 6 0 000-12zm0 10a4 4 0 110-8 4 4 0 010 8zm6.5-10.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/share/1BdnyJ8d1z/" target="_blank" title="Facebook" aria-label="فيسبوك">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="currentColor"><path d="M29 16c0-7.18-5.82-13-13-13S3 8.82 3 16c0 6.48 4.84 11.82 11.13 12.82v-9.07h-3.35v-3.75h3.35V13.5c0-3.32 2-5.14 5.02-5.14 1.45 0 2.97.26 2.97.26v3.27h-1.68c-1.66 0-2.18 1.03-2.18 2.09v2.51h3.71l-.59 3.75h-3.12v9.07C24.16 27.82 29 22.48 29 16z"/></svg>
+            </a>
+            <a href="https://youtube.com/channel/UC5adSKDEHn_B_2vxKnVnxNA" target="_blank" title="YouTube" aria-label="يوتيوب">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="currentColor"><path d="M31.67 9.27a3.99 3.99 0 00-2.81-2.82C26.36 6 16 6 16 6s-10.36 0-12.86.45a3.99 3.99 0 00-2.81 2.82C0 11.77 0 16 0 16s0 4.23.33 6.73a3.99 3.99 0 002.81 2.82C5.64 26 16 26 16 26s10.36 0 12.86-.45a3.99 3.99 0 002.81-2.82C32 20.23 32 16 32 16s0-4.23-.33-6.73zM12.8 21.2V10.8l8.4 5.2-8.4 5.2z"/></svg>
+            </a>
+        </div>
+    </section>
     <!-- Floating WhatsApp Button -->
-    <a class="floating-whatsapp" href="https://wa.me/+20 155 822 4765?text=مرحبا، أريد الاستفسار عن الحجز" target="_blank" aria-label="واتساب مباشر">
-        <i class="fa-brands fa-whatsapp"></i>
+    <a href="https://wa.me/+201558224765" class="floating-whatsapp" target="_blank" aria-label="واتساب مباشر">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="currentColor"><path d="M16 3C9.373 3 4 8.373 4 15c0 2.385.697 4.607 2.02 6.563L4 29l7.652-2.012C13.393 27.634 14.68 28 16 28c6.627 0 12-5.373 12-13S22.627 3 16 3zm0 23c-1.17 0-2.318-.234-3.406-.697l-.243-.106-4.543 1.193 1.213-4.429-.158-.252C7.234 19.318 7 18.17 7 17c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10zm5.406-7.697c-.297-.148-1.758-.867-2.031-.967-.273-.099-.47-.148-.667.148-.197.297-.767.967-.94 1.164-.173.198-.347.223-.644.074-.297-.148-1.255-.463-2.39-1.477-.883-.788-1.48-1.761-1.653-2.058-.173-.297-.018-.457.13-.605.134-.133.297-.347.446-.52.149-.173.198-.297.297-.495.099-.198.05-.371-.025-.52-.074-.148-.667-1.611-.913-2.205-.241-.579-.487-.5-.667-.51-.173-.009-.371-.011-.57-.011-.198 0-.52.074-.793.372-.273.297-1.04 1.016-1.04 2.477 0 1.461 1.065 2.876 1.213 3.074.148.198 2.099 3.208 5.093 4.377.713.274 1.27.438 1.705.561.717.229 1.37.197 1.883.12.575-.085 1.758-.719 2.007-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
     </a>
     <!-- Footer -->
     <footer>
         جميع الحقوق محفوظة © <span id="year"></span> أ/ محمد سعيد يونس (الدرعمي)
     </footer>
+    <!-- JS -->
     <script>
         // Loading Animation
         window.addEventListener('DOMContentLoaded', function() {
             setTimeout(function() {
-                document.body.classList.add('loaded');
-                document.getElementById('loader').classList.add('hide');
+                document.getElementById('loader').style.opacity = '0';
+                setTimeout(function() {
+                    document.getElementById('loader').style.display = 'none';
+                }, 500);
             }, 900);
         });
+
+        // Dark/Light Mode
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            themeIcon.textContent = theme === 'dark' ? '☀️' : '🌙';
+            localStorage.setItem('theme', theme);
+        }
+        themeToggle.onclick = function() {
+            const current = document.documentElement.getAttribute('data-theme') || 'light';
+            setTheme(current === 'light' ? 'dark' : 'light');
+        };
+        // Load theme from storage
+        (function() {
+            const saved = localStorage.getItem('theme');
+            if (saved) setTheme(saved);
+        })();
+
         // Reveal Animations
-        function revealSections() {
+        function revealOnScroll() {
             document.querySelectorAll('.reveal').forEach(function(el) {
-                var rect = el.getBoundingClientRect();
+                const rect = el.getBoundingClientRect();
                 if (rect.top < window.innerHeight - 60) {
                     el.classList.add('visible');
                 }
             });
         }
-        window.addEventListener('scroll', revealSections);
-        window.addEventListener('DOMContentLoaded', revealSections);
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            var nav = document.querySelector('nav');
-            if (window.scrollY > 40) nav.classList.add('scrolled');
-            else nav.classList.remove('scrolled');
-        });
-        // Smooth scroll for nav links
-        document.querySelectorAll('.nav-menu a').forEach(function(link) {
-            link.addEventListener('click', function(e) {
-                var href = link.getAttribute('href');
-                if (href.startsWith('#')) {
-                    e.preventDefault();
-                    document.querySelectorAll('.nav-menu a').forEach(a=>a.classList.remove('active'));
-                    link.classList.add('active');
-                    document.querySelector(href).scrollIntoView({behavior:'smooth'});
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('DOMContentLoaded', revealOnScroll);
+
+        // Booking Form Dynamic Groups
+        const stageEl = document.getElementById('stage');
+        const centerEl = document.getElementById('center');
+        const groupEl = document.getElementById('group');
+        function updateGroups() {
+            const stage = stageEl.value;
+            const center = centerEl.value;
+            groupEl.innerHTML = '';
+            let options = [];
+            if (center === 'الكيان (القلج)') {
+                if (stage === 'الصف الثالث الثانوي') {
+                    options = [
+                        'المجموعة 1: الاثنين و الخميس من 11:00 ص – 1:00 م',
+                        'المجموعة 2: الاثنين و الخميس من 1:00 م – 3:00 م'
+                    ];
+                } else if (stage === 'الصف الثالث الإعدادي') {
+                    options = [
+                        'المجموعة 1: الاثنين و الخميس من 6:00 م – 7:30 م',
+                        'المجموعة 2: الاثنين و الخميس من 7:30 م – 9:00 م'
+                    ];
                 }
-            });
-        });
-        // Booking Form WhatsApp Integration
-        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            }
+            if (options.length) {
+                groupEl.innerHTML = '<option value="">اختر المجموعة</option>' +
+                    options.map(g => `<option>${g}</option>`).join('');
+            } else {
+                groupEl.innerHTML = '<option value="">لا توجد مجموعات متاحة</option>';
+            }
+        }
+        stageEl.addEventListener('change', updateGroups);
+        centerEl.addEventListener('change', updateGroups);
+
+        // Booking Form Submission
+        document.getElementById('bookingForm').onsubmit = function(e) {
             e.preventDefault();
-            var name = document.getElementById('studentName').value.trim();
-            var phone = document.getElementById('studentPhone').value.trim();
-            var parent = document.getElementById('parentPhone').value.trim();
-            var stage = document.getElementById('stage').value;
-            var center = document.getElementById('center').value;
-            var msg = `الاسم [${name}]\nرقم الهاتف [${phone}]\nرقم هاتف ولي الأمر [${parent}]\nالمرحلة الدراسية [${stage}]\nالمركز [${center}]`;
-            var url = `https://wa.me/201068685494?text=${encodeURIComponent(msg)}`;
-            window.open(url, '_blank');
-        });
-        // Dark Mode Toggle
-        var darkMode = false;
-        document.getElementById('darkToggle').addEventListener('click', function() {
-            darkMode = !darkMode;
-            document.documentElement.setAttribute('data-theme', darkMode ? 'dark' : '');
-        });
+            const name = document.getElementById('studentName').value.trim();
+            const studentPhone = document.getElementById('studentPhone').value.trim();
+            const parentPhone = document.getElementById('parentPhone').value.trim();
+            const stage = stageEl.value;
+            const center = centerEl.value;
+            const group = groupEl.value;
+            const msg = `مرحبا،%0Aالاسم = ${name}،%0Aرقم الهاتف = ${studentPhone}،%0Aرقم ولي الأمر = ${parentPhone}،%0Aالمرحلة الدراسية = ${stage}،%0Aالمركز = ${center}،%0Aالمجموعة = ${group}。`;
+            window.open(`https://wa.me/201068685494?text=${msg}`, '_blank');
+        };
+
         // Footer Year
         document.getElementById('year').textContent = new Date().getFullYear();
     </script>
